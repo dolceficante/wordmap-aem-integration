@@ -19,11 +19,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.wordmap</groupId>
-        <artifactId>aem-integration</artifactId>
+        <artifactId>wordmap-aem-integration</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>aem-integration.core</artifactId>
+    <artifactId>wordmap-aem-integration.core</artifactId>
     <packaging>bundle</packaging>
     <name>wordmap-aem-integration - Core</name>
     <description>Core bundle for wordmap-aem-integration</description>

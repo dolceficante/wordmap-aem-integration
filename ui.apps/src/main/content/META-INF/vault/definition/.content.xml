@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:vlt="http://www.day.com/jcr/vault/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:created="{Date}2018-06-04T15:01:18.213-05:00"
+    jcr:createdBy="admin"
+    jcr:description="Wordmap Connectors for AEM brings the Wordmap Platform to your AEM environment. "
+    jcr:lastModified="{Date}2018-06-04T15:01:18.213-05:00"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="vlt:PackageDefinition"
+    buildCount="2"
+    builtWith="Adobe Experience Manager-6.4.0"
+    group="my_packages"
+    lastUnwrapped="{Date}2018-06-04T15:01:18.213-05:00"
+    lastUnwrappedBy="admin"
+    lastWrapped="{Date}2018-06-04T15:01:18.213-05:00"
+    lastWrappedBy="admin"
+    name="wordmap"
+    version="">
+    <filter jcr:primaryType="nt:unstructured">
+        <f0
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/etc/cloudservices/wordmap-services"
+            rules="[]"/>
+        <f1
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/apps/eis"
+            rules="[]"/>
+        <f2
+            jcr:primaryType="nt:unstructured"
+            mode="replace"
+            root="/libs/cq/core/content/nav/tools/cloudservices/wordmap"
+            rules="[]"/>
+    </filter>
+    <thumbnail jcr:primaryType="nt:unstructured">
+        <file/>
+    </thumbnail>
+    <thumbnail.png/>
+</jcr:root>

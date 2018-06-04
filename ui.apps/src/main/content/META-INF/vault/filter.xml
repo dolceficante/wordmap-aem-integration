@@ -3,6 +3,9 @@
     <filter root="/apps/wordmap-aem-integration">
         <exclude pattern="/apps/wordmap-aem-integration/install" />
     </filter>
+    <filter root="/apps/eis"/>
     <filter root="/apps/sling" />
+    <filter root="/libs/cq/core/content/nav"/>
+    <filter root ="/etc/cloudservices/wordmap-services"/>
     <filter root="/etc/designs/wordmap-aem-integration"/>
 </workspaceFilter>
