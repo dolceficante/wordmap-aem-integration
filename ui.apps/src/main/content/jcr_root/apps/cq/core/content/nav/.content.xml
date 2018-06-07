@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="nt:unstructured"
+    id="root">
+    <projects/>
+    <sites/>
+    <experiencefragments/>
+    <assets/>
+    <forms/>
+    <screens/>
+    <personalization/>
+    <commerce/>
+    <tools
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Tools"
+        id="cq-tools"
+        order="{Long}200">
+        <general/>
+        <workflow/>
+        <operations/>
+        <sites/>
+        <assets/>
+        <resources/>
+        <deployment/>
+        <security/>
+        <commerce/>
+        <cloudservices
+            jcr:primaryType="nt:unstructured"
+            jcr:title="Cloud Services"
+            id="cq-touch-cloudservices">
+            <cloudservices/>
+            <translationCloudServices/>
+            <youtube/>
+            <scene7/>
+            <dmscene7/>
+            <dynamicmedia/>
+            <adobelaunch/>
+            <recaptchalaunch/>
+            <typekitlaunch/>
+            <facebookconnect/>
+            <twitterconnect/>
+            <pinterestconnect/>
+            <wordmap
+                jcr:description="Wordmap Configuration"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Wordmap Configuration"
+                href="/etc/cloudservices/wordmap.html"
+                icon="cloud">
+                <granite:rendercondition
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/foundation/renderconditions/not">
+                    <condition1
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/renderconditions/feature"
+                        feature="com.adobe.dam.asset.dynamicmedia.feature.flag"/>
+                    <condition2
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/foundation/renderconditions/feature"
+                        feature="com.adobe.dam.asset.scene7.feature.flag"/>
+                </granite:rendercondition>
+            </wordmap>
+        </cloudservices>
+        <communities/>
+    </tools>
+    <communities/>
+</jcr:root>

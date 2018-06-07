@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2015-01-19T13:32:27.764+02:00"
+        cq:lastModifiedBy="dolce"
+        cq:template="/libs/cq/cloudserviceconfigs/templates/servicepage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Wordmap"
+        sling:resourceType="cq/cloudserviceconfigs/components/servicepage"
+        componentReference="wordmaps/components/generictracker"
+        thumbnailPath="/apps/wordmap/wordmap.png"
+        serviceUrl="https://www.wordmap.com/"
+        description="Taxonomy Modeling &amp; Management Solutions: Organize your products. Organize your business."
+        descriptionExtended="Wordmap Inc. is a wholly-owned subsidiary of Earley Information Science, Inc.  When coupled with Earley Information Science strategic digital transformation services, Wordmap taxonomy management software gives your internal teams the head start and boost they need to realize and sustain your digital ecosystem."
+        inclusionRank="{Long}49"
+        ranking="49"/>
+</jcr:root>

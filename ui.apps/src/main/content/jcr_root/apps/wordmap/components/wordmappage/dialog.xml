@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    xtype="dialog">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tabs jcr:primaryType="cq:TabPanel">
+            <items jcr:primaryType="cq:WidgetCollection">
+		        <wordmap
+		            jcr:primaryType="nt:unstructured"
+		            title="Wordmap Settings"
+		            xtype="panel">
+		            <items jcr:primaryType="cq:WidgetCollection">
+		                <serverUrl
+		                    jcr:primaryType="cq:Widget"
+		                    fieldLabel="Wordmap Server"
+		                    name="./serverUrl"
+		                    xtype="textfield"/>		
+		                <sessionToken
+		                    jcr:primaryType="cq:Widget"
+		                    fieldLabel="Session Token"
+		                    name="./sessionToken"
+		                    xtype="textfield"/>			                                    
+		                <taxonomyId
+		                    jcr:primaryType="cq:Widget"
+		                    fieldLabel="Taxonomy Id"
+		                    name="./taxonomyId"
+		                    xtype="textfield"/>
+		            </items>
+		        </wordmap>
+		     </items>
+	     </tabs>
+    </items>
+</jcr:root>
