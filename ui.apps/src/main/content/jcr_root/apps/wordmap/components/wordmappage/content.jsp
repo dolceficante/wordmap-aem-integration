@@ -26,7 +26,37 @@
 	///	clientId = uuid;
 	//}
 %>            
+<script type="text/javascript">
 
+$(document).ready(function(){
+ $("#msgid").html("OK");
+});
+
+
+function synchTaxonomy(){
+	var serverUrl = '<%= serverUrl %>';
+	var sessionToken = '<%= sessionToken %>';
+	var taxonomyId = '<%= taxonomyId %>';
+	
+	var requestUrl = '/bin/wordmap/taxonomy-synch';
+	console.log('synchronizing taxonomy');
+	$("#msgid").html("Synchronizing...");
+
+	$.ajax({
+		url: requestUrl,
+		type: "GET",
+		data: {serverUrl : serverUrl, sessionToken : sessionToken, taxonomyId : taxonomyId},
+		success : function(result){
+			$("#msgid").html("Result: " + result);
+		},
+		error : function(jqXHR, textStatus, errorThrown){
+			$("#msgid").html("ERROR: " + errorThrown);
+		}
+	});
+	
+}
+
+</script>
 
 <div>
     <h3>Wordmap Settings</h3>   
@@ -35,5 +65,8 @@
         <li><div class="li-bullet"><strong>Session Token: </strong><br><%= sessionToken %></div></li>
         <li><div class="li-bullet"><strong>Taxonomy Id: </strong><br><%= taxonomyId %></div></li>
     </ul>
+   	<button type="button" id="sync-taxonomy" class=" x-btn-text" onClick="synchTaxonomy();">Synchronize Taxonomy</button>
+	<div id="msgid">
+	</div>
 </div>
 

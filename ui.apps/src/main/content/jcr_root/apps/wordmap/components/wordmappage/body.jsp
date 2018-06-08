@@ -27,7 +27,9 @@
     String resourceType = xssAPI.encodeForJSString(resource.getResourceType());
     String dialogPath = xssAPI.encodeForJSString(resourceResolver.getResource(resource.getResourceType()).getPath()) + "/dialog";
      
-%><body>
+%>
+
+<body>
     <div><cq:include path="trail" resourceType="cq/cloudserviceconfigs/components/trail"/></div>
     <p class="cq-clear-for-ie7"></p>
     <h1><%= title %></h1>
@@ -71,5 +73,7 @@
         </script>     
     </div>
     <cq:include script="content.jsp" />
+
+    
     <p>&nbsp;</p>
 </body>

@@ -45,6 +45,7 @@
                             artifactId2;inline=true
                         </Embed-Dependency>
                         -->
+                         <Import-Package>javax.inject;version=0.0.0,*</Import-Package>
                         <Sling-Model-Packages>
                             com.wordmap.core
                         </Sling-Model-Packages>
@@ -132,5 +133,35 @@
             <groupId>junit-addons</groupId>
             <artifactId>junit-addons</artifactId>
         </dependency>
+		<!-- 
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+            <scope>provided</scope>
+        </dependency>        
+        -->
+
+		<dependency> 
+			<groupId>javax.inject</groupId> 
+			<artifactId>javax.inject</artifactId> 
+			<version>1</version>
+		</dependency>
+        
+        <dependency> 
+        	<groupId>com.adobe.aem</groupId> 
+        	<artifactId>uber-jar</artifactId> 
+        	<version>6.2.0</version> 
+        	<classifier>apis</classifier> 
+        	<scope>provided</scope> 
+        </dependency>
+        
+		<dependency>
+			<artifactId>geronimo-atinject_1.0_spec</artifactId>
+			<version>1.0</version>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<scope>provided</scope>
+		</dependency>            
+        
     </dependencies>
 </project>
