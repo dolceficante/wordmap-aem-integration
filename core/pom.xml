@@ -45,6 +45,9 @@
                             artifactId2;inline=true
                         </Embed-Dependency>
                         -->
+                        <Embed-Dependency>
+                        	json;inline=true
+                        </Embed-Dependency>
                          <Import-Package>javax.inject;version=0.0.0,*</Import-Package>
                         <Sling-Model-Packages>
                             com.wordmap.core
@@ -161,7 +164,19 @@
 			<version>1.0</version>
 			<groupId>org.apache.geronimo.specs</groupId>
 			<scope>provided</scope>
-		</dependency>            
+		</dependency>        
+		
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.5.4</version>
+		</dependency>    
+		
+		<dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20180130</version>
+		</dependency>		
         
     </dependencies>
 </project>

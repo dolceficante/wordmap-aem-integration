@@ -47,6 +47,7 @@ function synchTaxonomy(){
 		type: "GET",
 		data: {serverUrl : serverUrl, sessionToken : sessionToken, taxonomyId : taxonomyId},
 		success : function(result){
+			console.log(result);
 			$("#msgid").html("Result: " + result);
 		},
 		error : function(jqXHR, textStatus, errorThrown){

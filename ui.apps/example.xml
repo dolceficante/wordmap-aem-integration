@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WORDMAP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.wordmap.com/dtd/wordmap_schema_EE23.xsd">
+	<SOURCE name="EIS_Aspect_Insurance_Sales_Collateral-Chatbot"
+		version="1.0"
+		description="EIS_Aspect_Insurance_Sales_Collateral-Chatbot"
+		ftset="EIS_Aspect_Insurance_Sales_Collateral-Chatbot">
+		<PHYSICAL_RELATIONSHIP_TYPE type="is a" />
+		<NON_PHYSICAL_RELATIONSHIP_TYPE
+			type="see also" reciprocal="0" reciprocal_label="" />
+		<SEQ name="ID" prefix="" start="21" />
+		<FEATURE_TYPE name="WM Searchstring" data_type="CHAR"
+			locale_specific="0" />
+		<FEATURE_TYPE name="WM Original Code" data_type="CHAR"
+			locale_specific="0" />
+		<FEATURE_TYPE name="WM Searchstring Append"
+			data_type="CHAR" locale_specific="0" />
+		<FEATURE_TYPE name="WM Status" data_type="BOOLEAN"
+			locale_specific="0" />
+		<FEATURE_TYPE name="WM Visible" data_type="BOOLEAN"
+			locale_specific="0" />
+		<FEATURE_TYPE name="WM Start Date" data_type="DATE"
+			locale_specific="0" />
+		<FEATURE_TYPE name="AspectFacetID" data_type="NUMBER"
+			locale_specific="0" />
+		<FEATURE_TYPE name="WM Associated Term" data_type="CHAR"
+			locale_specific="0" />
+		<FEATURE_TYPE name="WM ITL" data_type="ITL"
+			locale_specific="0" />
+		<FEATURE_TYPE name="WM Artificial" data_type="CHAR"
+			locale_specific="0" />
+		<FEATURE_TYPE name="GUID" data_type="CHAR"
+			locale_specific="0" />
+		<FEATURE_TYPE name="WM End Date" data_type="DATE"
+			locale_specific="0" />
+		<LOV_FEATURE_TYPE name="Status" data_type="LOV"
+			sub_type="Status" locale_specific="0" />
+		<SEQ_FEATURE_TYPE name="ID" data_type="SEQ"
+			sub_type="ID" locale_specific="0" />
+		<FEATURE_TYPE_SET
+			name="EIS_Aspect_Insurance_Sales_Collateral-Chatbot">
+			<FEATURE_TYPE_SET_ITEM feature_type="ID"
+				editable="0" required="1" unique="1" key="1" cardinality="S" />
+			<FEATURE_TYPE_SET_ITEM
+				feature_type="AspectFacetID" editable="1" required="0" unique="1"
+				key="0" cardinality="S" />
+		</FEATURE_TYPE_SET>
+	</SOURCE>
+	<DATA>
+		<ROOT id="WM12001"></ROOT>
+	</DATA>
+</WORDMAP>
