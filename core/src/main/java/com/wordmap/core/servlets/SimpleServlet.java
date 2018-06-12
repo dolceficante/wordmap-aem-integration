@@ -97,12 +97,16 @@ public class SimpleServlet extends SlingSafeMethodsServlet {
         ResourceResolver resourceResolver = req.getResourceResolver();
         //ResourceResolver resourceResolver = resolverFactory.getAdministrativeResourceResolver(null);
 		Session session = resourceResolver.adaptTo(Session.class);
-		 
 
+		String tagName = "wordmap:" + rootNode.getName();		
 		
 		TagManager tMgr = tmf.getTagManager(session);
+		Tag tag = tMgr.resolve(tagName);
+		if (tag != null) {
+			tMgr.deleteTag(tag, true);
+		}
 
-		TagUtil.getInstance().buildTaxonomy(rootNode, "wordmap", tMgr); 		
+		TagUtil.getInstance().buildTaxonomy(rootNode, tagName, tMgr); 		
 		
 
 		
