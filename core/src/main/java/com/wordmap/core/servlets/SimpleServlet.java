@@ -98,7 +98,7 @@ public class SimpleServlet extends SlingSafeMethodsServlet {
         //ResourceResolver resourceResolver = resolverFactory.getAdministrativeResourceResolver(null);
 		Session session = resourceResolver.adaptTo(Session.class);
 
-		String tagName = "wordmap:" + rootNode.getName();		
+		String tagName = "Wordmap:" + rootNode.getName();		
 		
 		TagManager tMgr = tmf.getTagManager(session);
 		Tag tag = tMgr.resolve(tagName);
