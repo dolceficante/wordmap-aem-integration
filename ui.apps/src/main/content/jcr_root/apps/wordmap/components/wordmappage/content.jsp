@@ -48,7 +48,7 @@ function synchTaxonomy(){
 		data: {serverUrl : serverUrl, sessionToken : sessionToken, taxonomyId : taxonomyId},
 		success : function(result){
 			console.log(result);
-			$("#msgid").html("Result: " + result);
+			$("#msgid").html("<a href='/libs/cq/tagging/gui/content/tags.html/content/cq:tags/Wordmap'>View Taxonomy</a>");
 		},
 		error : function(jqXHR, textStatus, errorThrown){
 			$("#msgid").html("ERROR: " + errorThrown);

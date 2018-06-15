@@ -54,6 +54,8 @@ public class SimpleServlet extends SlingSafeMethodsServlet {
     	//http://webservices.wordmap.com/wappkrn104g/tms/json/wordset/root
     	String requestUrl = "http://webservices.wordmap.com/wappkrn104g/tms/json/wordset/root";
     	//String requestUrl = serverUrl + "/tms/json/taxonomy/" + taxonomyId;
+		String url = "http://webservices.wordmap.com/wappkrn104g/tms/json/taxonomy/" + taxonomyId;
+		ServiceUtil.getInstance().setTaxonomy(url, sessionToken);
     	
     	JSONObject json = ServiceUtil.getInstance().getJson(requestUrl, sessionToken);
     	
