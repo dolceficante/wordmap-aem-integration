@@ -48,7 +48,7 @@ function synchTaxonomy(){
 		data: {serverUrl : serverUrl, sessionToken : sessionToken, taxonomyId : taxonomyId},
 		success : function(result){
 			console.log(result);
-			$("#msgid").html("<a href='/libs/cq/tagging/gui/content/tags.html/content/cq:tags/Wordmap'>View Taxonomy</a>");
+			$("#msgid").html("<a href='/libs/cq/tagging/gui/content/tags.html/content/cq:tags/Wordmap'>View Taxonomy</a><br/><a href='/mnt/overlay/dam/gui/content/metadataschemaeditor/schemalist.html'>View Schema</a>");
 		},
 		error : function(jqXHR, textStatus, errorThrown){
 			$("#msgid").html("ERROR: " + errorThrown);

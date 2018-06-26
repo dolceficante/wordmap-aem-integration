@@ -46,6 +46,7 @@
                         </Embed-Dependency>
                         -->
                         <Embed-Dependency>
+                        	slugify;inline=true,
                         	json;inline=true
                         </Embed-Dependency>
                          <Import-Package>javax.inject;version=0.0.0,*</Import-Package>
@@ -176,7 +177,13 @@
 		    <groupId>org.json</groupId>
 		    <artifactId>json</artifactId>
 		    <version>20180130</version>
-		</dependency>		
+		</dependency>	
+		
+		<dependency>
+			<groupId>com.github.slugify</groupId>
+			<artifactId>slugify</artifactId>
+			<version>2.1.5</version>
+		</dependency>	
         
     </dependencies>
 </project>

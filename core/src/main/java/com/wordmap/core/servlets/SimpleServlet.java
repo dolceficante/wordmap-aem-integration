@@ -19,7 +19,11 @@ import org.json.JSONObject;
 import com.day.cq.tagging.JcrTagManagerFactory;
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
+import com.wordmap.core.models.Field;
+import com.wordmap.core.models.Schema;
 import com.wordmap.core.models.TaxonomyNode;
+import com.wordmap.core.models.Value;
+import com.wordmap.core.util.JcrUtil;
 import com.wordmap.core.util.ServiceUtil;
 import com.wordmap.core.util.TagUtil;
 
@@ -64,6 +68,8 @@ public class SimpleServlet extends SlingSafeMethodsServlet {
         int parentWordsetId = json.optInt("id");
         String rootName = json.optString("leadword");
         
+    	Schema schema = new Schema(rootName);        
+        
         TaxonomyNode rootNode = new TaxonomyNode();
         rootNode.setId(parentWordsetId);
         rootNode.setName(rootName);
@@ -77,11 +83,35 @@ public class SimpleServlet extends SlingSafeMethodsServlet {
         	JSONObject wordset = j.optJSONObject("wordset");
         	String leadword = wordset.optString("leadword");
         	int wordsetId = wordset.optInt("id");
-        	TaxonomyNode child = new TaxonomyNode(rootNode);
-        	child.setId(wordsetId);
-        	child.setName(leadword);
-        	rootNode.addChild(child);
-        	processChildren(parentWordsetId, wordsetId, child, sessionToken);
+        	
+        	String featureUrl = "http://webservices.wordmap.com/wappkrn104g/tms/json/wordset/" + wordsetId + "/features";
+        	JSONArray featuresJson = ServiceUtil.getInstance().getJsonArray(featureUrl, sessionToken);
+
+        	String aemId = null;
+        	for (int y = 0 ; y < featuresJson.length(); y++) {
+        		JSONObject feature = featuresJson.optJSONObject(y);
+        		if (feature != null) {
+        			JSONObject featureType = feature.optJSONObject("FeatureType");
+        			String value = feature.optString("Value");
+        			if (featureType != null) {
+        				String name = featureType.optString("name");
+        				if ("AEMTermId".equals(name)) {
+        					aemId = value;
+        				}
+        			}
+        		}
+        	}
+        	
+        	if (aemId != null) {
+        		Field f = new Field(leadword);
+        		f.setId(aemId);
+        		schema.addField(f);
+	        	TaxonomyNode child = new TaxonomyNode(rootNode);
+	        	child.setId(wordsetId);
+	        	child.setName(leadword);
+	        	rootNode.addChild(child);
+	        	processChildren(parentWordsetId, wordsetId, child, sessionToken,f);
+        	}
         }
         
         /*
@@ -110,15 +140,15 @@ public class SimpleServlet extends SlingSafeMethodsServlet {
 
 		TagUtil.getInstance().buildTaxonomy(rootNode, tagName, tMgr); 		
 		
-
+		JcrUtil.getInstance().buildSchema(schema, session);
 		
         resp.getOutputStream().println(rootNode.toString());
        
     }
     
-    private void processChildren(int parentWordsetId, int wordsetId, TaxonomyNode parentNode, String sessionToken) {
+    private void processChildren(int parentWordsetId, int wordsetId, TaxonomyNode parentNode, String sessionToken, Field field) {
     	
-    	String endpoint = "http://webservices.wordmap.com/wappkrn104g/tms/json/wordset/" + wordsetId + "/parent/" + parentWordsetId;
+    	String endpoint = "http://webservices.wordmap.com/wappkrn104g/tms/json/wordset/" + wordsetId + "/parent/" + parentWordsetId + "/relationshipTypeNames;name=is%20a";
     	
     	JSONArray json3 = ServiceUtil.getInstance().getJsonArray(endpoint, sessionToken);
         
@@ -127,11 +157,13 @@ public class SimpleServlet extends SlingSafeMethodsServlet {
         	JSONObject wordset = j.optJSONObject("wordset");
         	String leadword = wordset.optString("leadword");
         	int id = wordset.optInt("id");
+        	Value value = new Value(String.valueOf(id), leadword);
+        	field.addValue(value);
         	TaxonomyNode child = new TaxonomyNode(parentNode);
         	child.setId(id);
         	child.setName(leadword);
         	parentNode.addChild(child);
-        	processChildren(wordsetId, id, child, sessionToken);
+        	//processChildren(wordsetId, id, child, sessionToken);
         }
     	
     }
