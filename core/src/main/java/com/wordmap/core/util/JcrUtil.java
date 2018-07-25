@@ -66,6 +66,7 @@ public class JcrUtil {
 			for (Field field : schema.getFields()) {
 				count++;
 				String fieldNameSlug = slug.slugify(field.getName());
+				fieldNameSlug = "dam:" + fieldNameSlug;
 				Node col = getNode(items3,"col" + count);
 				col.setPrimaryType("nt:unstructured");
 				col.setProperty("granite:rel","aem-assets-metadata-form-column");

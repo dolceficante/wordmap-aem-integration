@@ -34,6 +34,7 @@ $(document).ready(function(){
 
 
 function synchTaxonomy(){
+	
 	var serverUrl = '<%= serverUrl %>';
 	var sessionToken = '<%= sessionToken %>';
 	var taxonomyId = '<%= taxonomyId %>';
@@ -47,8 +48,9 @@ function synchTaxonomy(){
 		type: "GET",
 		data: {serverUrl : serverUrl, sessionToken : sessionToken, taxonomyId : taxonomyId},
 		success : function(result){
-			console.log(result);
+			//console.log(result);
 			$("#msgid").html("<a href='/libs/cq/tagging/gui/content/tags.html/content/cq:tags/Wordmap'>View Taxonomy</a><br/><a href='/mnt/overlay/dam/gui/content/metadataschemaeditor/schemalist.html'>View Schema</a>");
+			setTimeout(synchTaxonomy, 20000);
 		},
 		error : function(jqXHR, textStatus, errorThrown){
 			$("#msgid").html("ERROR: " + errorThrown);
